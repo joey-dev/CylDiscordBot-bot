@@ -1,9 +1,8 @@
-import { Client, Collection, Intents } from 'discord.js';
-import { env } from 'process';
+import { Client, Intents } from 'discord.js';
 import * as dotenv from 'dotenv';
 import { ConnectDatabase } from './services/database/connection/Connect';
-import LoadModules from './services/load/LoadModules';
 import LoadEvents from './services/load/LoadEvents';
+import LoadModules from './services/load/LoadModules';
 
 dotenv.config();
 
@@ -33,14 +32,14 @@ const RunBot = async (): Promise<void> => {
         user: process.env.DATABASE_USER,
         password: process.env.DATABASE_PASSWORD,
         database: process.env.DATABASE_NAME,
-    })
+    });
 
     client.login(process.env.DISCORD_TOKEN)
         .then(() => {
             console.log('The bot has successfully been logged in!');
         })
         .catch(error => {
-            console.error("An unexpected error has occurred while the bot tried to login");
+            console.error('An unexpected error has occurred while the bot tried to login');
             console.error(error);
         });
 
@@ -59,13 +58,13 @@ const RunBot = async (): Promise<void> => {
     });
 
     return;
-}
+};
 
 RunBot()
     .then(() => {
         console.log('Bot has been loaded');
     })
     .catch(error => {
-        console.error("An unexpected error has occurred while the bot tried to load");
+        console.error('An unexpected error has occurred while the bot tried to load');
         console.error(error);
     });

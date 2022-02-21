@@ -42,7 +42,7 @@ export const run: ICommandRun = async (client, message, args, language, ephemera
             });
             resolve(responseMessage);
         } catch (error) {
-            reject(error)
+            reject(error);
             console.error(error);
         }
     }));
