@@ -5,8 +5,8 @@ import { ICommand, ICommands } from '../../types/Commands';
 const LoadModules = (): ICommands => {
     const moduleTypes = [
         'public',
-        'private',
-        'privateAndPublic',
+        // 'private',
+        // 'privateAndPublic',
     ];
 
     let commands: ICommands = {
