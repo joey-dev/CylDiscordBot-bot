@@ -1,9 +1,11 @@
-FROM node:lts-alpine3.14
+FROM node:16.14.2
 
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-ADD . /usr/src/app
-RUN npm install
+RUN chown -Rh node:node /usr/src/app
 
-CMD ["npm", "start"]
+USER node
+
+
+
+CMD [ "sh", "-c", "npm install && npm run start" ]
